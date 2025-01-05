@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>合同二维码验证</title>
+	</head>
+	<body onload="formatDate()">
+        <div class="box">
+            <div class="content">合同编号：YS050215</div>
+            <div class="content">签订日期：2022年10月15日</div>
+            <div class="content">合同状态：已完成期房网签,并备案,合同已生效</div>
+            <div class="content">出卖方：莘县百顺房地产开发有限公司</div>
+            <div class="content">买受方：裴鑫鑫</div>
+            <div class="content">
+                房屋坐落：莘县昌盛路217号1幢1单元1601室
+                <br />
+                莘县昌盛路217号1幢8号地下室
+            </div>
+            <div class="info">
+                输入合同密码查看合同详细信息
+            </div>
+            <div class="search">
+                <input class="input-code" />
+                <div class="submit">查 询</div>
+            </div>
+            <div id="time"></div>
+        </div>
+        <script>
+            function formatDate() {
+                const date = new Date();
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0'); // 月份从0开始，需要加1
+                const day = String(date.getDate()).padStart(2, '0');
+                const hours = String(date.getHours()).padStart(2, '0');
+                const minutes = String(date.getMinutes()).padStart(2, '0');
+                const seconds = String(date.getSeconds()).padStart(2, '0');
+                document.getElementById("time").textContent = `数据查询时间：${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+            }
+        </script>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100vh;
+            }
+            .box {
+                width: 100%;
+                height: 100%;
+                padding: 14px 10px 0 48px;
+                box-sizing: border-box;
+            }
+            .content {
+                padding-bottom: 15px;
+            }
+            .info {
+                font-weight: bold;
+                color: #0B61A4;
+            }
+            .search {
+                width: 100%;
+                padding: 15px 0;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .input-code {
+                width: 260px;
+                border: #0B61A4 1px solid;
+                height: 35px;
+                font-weight: bolder;
+                font-size: 1.2em;
+                border-radius: 3px;
+            }
+            .submit {
+                width: 100px;
+                height: 35px;
+                line-height: 35px;
+                text-align: center;
+                border-radius: 3px;
+                background-color: #0078fb;
+                color: #ffffff;
+                font-weight: bold;
+            }
+            .submit:active {
+                opacity: 0.9;
+            }
+        </style>
+	</body>
+</html>
